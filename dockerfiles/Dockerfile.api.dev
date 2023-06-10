@@ -1,0 +1,23 @@
+FROM golang:1.16-buster AS dev
+
+# Uncomment for SSL certs
+# COPY --from=builder /etc/ssl/certs/ca-certificates.crt /etc/ssl/certs/
+
+# GO ENV VARS
+ENV GO111MODULE=on \
+    CGO_ENABLED=1 \
+    GOOS=linux \
+    GOARCH=amd64
+
+# Build Delve
+RUN go get github.com/go-delve/delve/cmd/dlv
+# Build Air
+RUN go get -u github.com/cosmtrek/air
+
+# Remote debugger
+EXPOSE 8000 40000
+
+RUN mkdir /app
+WORKDIR /app
+
+CMD ["air", "-c", ".air.api.toml"]

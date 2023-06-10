@@ -1,0 +1,45 @@
+#Name: worker
+
+##Ports:
+##Port: 8000
+#HealthPort: 9300
+#MetricsPort: 9400
+
+#Prefix:
+#RestPrefix: "/rest"
+#WebsocketPrefix: "/ws"
+#HealthPrefix: "/health"
+#MetricsPrefix: "/metrics"
+
+#Monitoring:
+#HealthPollingInterval: 10
+#LogLevel: "DEBUG"
+#LogToFile: false
+#NetworkName: "mainnet"
+
+#Kafka:
+#KafkaBrokerURL: "kafka:29092"
+#SchemaRegistryURL: "schemaregistry:8081"
+#KafkaGroupID: "worker-group"
+
+#Topics:
+#  ConsumerTopics:
+#    - "blocks"
+#  ProducerTopics:
+#    - "blocks-ws"
+#  SchemaNames:
+#    blocks: "block_raw"
+#    blocks-ws: "block_raw"
+
+#Postgres:
+#  host: "postgres"
+#  Port: "5432"
+#  User: "postgres"
+#  Password: "changeme"
+#  Dbname: "postgres"
+#  Sslmode: "disable"
+#  Timezone: "UTC"
+
+#Mongo:
+#  Host: "mongo"
+#  Port: "27017"

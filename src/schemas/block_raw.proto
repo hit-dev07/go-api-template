@@ -1,0 +1,23 @@
+syntax = "proto3";
+package models;
+option go_package = "./models";
+
+import "github.com/infobloxopen/protoc-gen-gorm/options/gorm.proto";
+
+message BlockRaw {
+  option (gorm.opts) = {ormable: true};
+
+  string signature = 1;
+  string item_id = 2;
+  string next_leader = 3;
+  uint32 transaction_count = 4;
+  string type = 5;
+  string version = 6;
+  string peer_id = 7 [(gorm.field).tag = {index: "idx_peer_id"}];
+  uint32 number = 8 [(gorm.field).tag = {index: "idx_number"}];
+  string merkle_root_hash = 9;
+  string item_timestamp = 10;
+  string hash = 11 [(gorm.field).tag = {primary_key: true}];
+  string parent_hash = 12;
+  uint64 timestamp = 13;
+}
